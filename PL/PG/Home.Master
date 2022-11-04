@@ -1,0 +1,144 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Home.Master.cs" Inherits="PL.PG.ClaseMaestra" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Hyperspace by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="../assets/css/noscript.css" />
+    </noscript>
+    
+    
+
+</head>
+<body>
+    <form id="form2" runat="server">
+        <div>
+            <!-- Sidebar-->
+            <section id="sidebar">
+                <div class="inner">
+                    <nav>
+                        <ul>                           
+                            
+                            <li><a href="#ajax">Controles Ajax</a></li>
+
+                        </ul>
+                    </nav>
+                </div>
+            </section>
+
+            <!-- Wrapper -->
+            <div id="wrapper">                
+
+                <!-- one -->
+                <!-- Intro -->
+                <section id="ajax" class="wrapper style1 fullscreen fade-up">
+                    <div class="inner">
+                        <h1>Controles Ajax </h1>
+                        <p>
+                            Ejemplos sencillos de tres controles AJAX
+                        </p>
+                        
+                        <ul class="actions">
+                            <li><a href="#ajaxone" class="button scrolly">Confirm Button Extender</a></li>
+                            <li><a href="#ajaxtwo" class="button scrolly">Animation Extender</a></li>
+                            <li><a href="#ajaxthree" class="button scrolly">Calendar Extender</a></li> 
+                        </ul>
+                        <br>
+                        <ul class="actions">                                                       
+                            <li><a href="http://localhost:4200/welcome" class="button scrolly">Regresar a ejemplo Angular</a></li>
+                            
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- one -->
+                <section id="ajaxone" class="wrapper style1 fullscreen fade-up">
+                    <div class="inner">
+                        <h1>Confirm Button Extender </h1>
+                        <p>
+                            ConfirmButton es un extensor simple que detecta los clicks en un botón (o cualquier instancia de un tipo derivado de Button) y 
+                            muestra un mensaje al usuario. Si se hace click en el botón "Aceptar", el botón o enlace funciona normalmente. 
+                            De lo contrario, si se hace click en "Cancelar" y el botón no realizará su comportamiento predeterminado de envío.
+                        </p>
+                        <!--Componente esencial para cargar los controles ajax es indispensable que este en el form donde se ubicaran dichos controles -->
+                        <asp:ScriptManager ID="ScriptManager1" runat="server">
+                        </asp:ScriptManager>
+                        <asp:Button ID="btn_Confirmar" runat="server" Text="Desplegar Confirmación" /> 
+                        <br/>                         
+                        <ajaxToolkit:ConfirmButtonExtender ID="btn_Confirmar_ConfirmButtonExtender" runat="server"  ConfirmText="Control funcionando adecuadamente" TargetControlID="btn_Confirmar" />
+                        <br/>
+
+                        <ul class="actions">                            
+                            <li><a href="#ajaxthree" class="button scrolly">Siguiente</a></li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Two -->
+                <section id="ajaxtwo" class="wrapper style2 spotlights">
+                    <div class="inner">
+                        <h1>Animation Extender </h1>
+                        <p>
+                            El soporte de animación en el Toolkit es más que un simple control. 
+                            Es un marco conectable y extensible para agregar fácilmente efectos de animación a páginas web.
+                            En el ejemplo se muestra la acción de animación de desvanecimiento, 
+                            que atenua la imagen dependiendo de, si el cursor pasa o sale por sobre la imagen.
+                        </p>                        
+                        <asp:Image ID="Imagen" runat="server" ImageUrl="~/images/Blog01.png"  />
+                        <ajaxToolkit:AnimationExtender ID="AnimationExtender2" runat="server"
+                            TargetControlID="Imagen">
+                            <Animations>
+                                        <OnMouseOver>
+                                            <FadeIn Duration="2" Fps="20" MinimumOpacity=".1"></FadeIn>
+                                        </OnMouseOver>
+                                        <OnMouseOut>
+                                            <FadeOut Duration="2" Fps="20" MinimumOpacity=".1"></FadeOut>
+                                        </OnMouseOut> 
+                            </Animations>
+                        </ajaxToolkit:AnimationExtender>
+                        <br/>
+                        <ul class="actions">
+                            <li><a href="#ajaxthree" class="button scrolly">Siguiente</a></li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!--Ajax Three -->
+                <section id="ajaxthree" class="wrapper style2 spotlights">
+                    <div class="inner">
+                        <h1>Calendar extender </h1>
+                        <p>
+                            Calendar es un extensor de ASP.NET AJAX que se puede adjuntar a cualquier control tipo TextBox de ASP.NET. 
+                            Proporciona la funcionalidad de selección de fechas del lado del cliente con un formato de fecha personalizable y 
+                            una interfaz de usuario desplegada en un control emergente (pop-up). El usuario puede interactuar con el calendario haciendo 
+                            clic en un día para establecer la fecha o en el enlace "Hoy" para establecer la fecha actual.
+                        </p>
+
+                        <br />
+
+                        Seleccione una fecha:
+                                <asp:TextBox ID="Txt_calendario" runat="server" Width="545px"></asp:TextBox>
+                        <asp:ImageButton ID="btn_calendario" runat="server" Height="45px" Text="Pulse aqui para el calendario" ImageUrl="~/images/icon calendar.png" Width="52px" />
+                        <ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd/MM/yyyy" PopupButtonID="btn_calendario" PopupPosition="BottomRight" TargetControlID="Txt_calendario" />
+                        <br />
+                        <ul class="actions">
+                            <li><a href="#ajax" class="button scrolly">Regresar</a></li>
+                        </ul>
+                        <br />
+                        <br />
+                        <br />
+                        <br />                        
+                    </div>
+                </section>
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
